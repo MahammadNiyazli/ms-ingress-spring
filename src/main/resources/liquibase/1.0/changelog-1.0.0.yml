@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create employee table
+      author: Mahammad Niyazli
+      changes:
+        - createTable:
+            tableName: employee
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(20)
+                  remarks: name of employee
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: int
+                  remarks: age of employee
+                  constraints:
+                    nullable: false
