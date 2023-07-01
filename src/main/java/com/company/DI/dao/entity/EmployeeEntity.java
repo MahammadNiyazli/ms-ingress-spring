@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 @Setter
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 @Entity
 @Table(name = "employee")
 public class EmployeeEntity {
@@ -17,4 +18,5 @@ public class EmployeeEntity {
     Long id;
     String name;
     Integer age;
+    Integer isActive;
 }
