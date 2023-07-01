@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: Update employee table
+      author: Mahammad Niyazli
+      changes:
+        - addColumn:
+            tableName: employee
+            columns:
+              - column:
+                  name: is_active
+                  type: int
+                  remarks: age of employee
+                  defaultValue: 1
+                  constraints:
+                    nullable: false
