@@ -1,12 +1,17 @@
 package com.company.DI.controller;
 
+import com.company.DI.dto.criteria.EmployeeCriteria;
+import com.company.DI.dto.criteria.PageCriteria;
 import com.company.DI.dto.request.EmployeeSaveRequest;
 import com.company.DI.dto.request.EmployeeUpdateRequest;
 import com.company.DI.dto.response.EmployeeResponse;
 import com.company.DI.dto.response.base.BaseResponse;
+import com.company.DI.dto.response.base.PageableEmployeeResponse;
 import com.company.DI.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("v1/employee")
@@ -38,6 +43,12 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public BaseResponse<?> getEmployeeById(@PathVariable Long id){
         EmployeeResponse response = employeeService.findById(id);
+        return BaseResponse.success(response);
+    }
+
+    @GetMapping
+    public BaseResponse<?> getEmployees(PageCriteria pageCriteria, EmployeeCriteria employeeCriteria){
+        PageableEmployeeResponse response = employeeService.getEmployees(pageCriteria, employeeCriteria);
         return BaseResponse.success(response);
     }
 }
